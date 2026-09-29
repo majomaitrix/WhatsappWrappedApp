@@ -18,6 +18,10 @@ The app can import WhatsApp chat exports in `.txt` or `.zip` format, process the
 - Display statistics using a story-style interface
 - Local file processing without a backend
 
+## Application Preview
+
+![WhatsApp Wrapped statistics](docs/screenshots/whatsapp-wrapped-stats.PNG)
+
 ## Tech Stack
 
 - React Native
