@@ -287,7 +287,15 @@ export default function InicioScreen({ navigation }: Props) {
         const totalDaysAvg = daySet.size;
         const avgMessagesPerDay = totalDaysAvg > 0 ? (totalMessagesavg / totalDaysAvg).toFixed(2) : 0;
 
-        mostActiveDay= dayOfWeekMap[dayOfWeekActive];
+        const mostActiveDayIndex = Object.entries(dayOfWeekCounts).reduce(
+          (maxDay, [day, count]) =>
+            count > (dayOfWeekCounts[Number(maxDay)] ?? 0)
+              ? Number(day)
+              : Number(maxDay),
+          0
+        );
+
+        mostActiveDay = dayOfWeekMap[mostActiveDayIndex];
         return {
         countMessage,
         participant1,
