@@ -27,7 +27,9 @@ export const analyzeMessages = (content: string) => {
         
         const emojiCounts: Record<string, number> = {};
         // Dividir el contenido por saltos de línea para obtener los mensajes
-        const messages = content.split('\n').filter(msg => msg.trim().length > 0).slice(1);
+        const messages = content
+        .split('\n')
+        .filter(msg => msg.trim().length > 0);
         // Devolver la cantidad de mensajes
         let countMessage = 0;
         const urlRegex = /\b(?:https?|www)\S+\b/;  // Regex para detectar enlaces
