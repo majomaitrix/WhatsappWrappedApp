@@ -1,97 +1,48 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# WhatsApp Wrapped App
 
-# Getting Started
+React Native application that analyzes exported WhatsApp chats locally and transforms conversation data into a story-style statistics experience.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+The app can import WhatsApp chat exports in `.txt` or `.zip` format, process the messages directly on the device and generate statistics without requiring a backend.
 
-## Step 1: Start Metro
+## Key Features
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- Import WhatsApp chat exports from `.txt` files
+- Import `.zip` exports and automatically extract the chat file
+- Count total messages
+- Compare message activity between two participants
+- Count shared links
+- Identify the most active month
+- Identify the most active hour
+- Calculate average messages per day
+- Detect the most used emoji
+- Display statistics using a story-style interface
+- Local file processing without a backend
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## Tech Stack
 
-```sh
-# Using npm
-npm start
+- React Native
+- TypeScript
+- React Navigation
+- React Native FS
+- React Native ZIP Archive
+- React Native Blob Util
+- React Native SVG
+- React Native Linear Gradient
 
-# OR using Yarn
-yarn start
-```
+## How It Works
 
-## Step 2: Build and run your app
+1. The user selects an exported WhatsApp `.txt` or `.zip` file.
+2. If a ZIP file is selected, the application extracts the contained chat file.
+3. The application parses message dates, participants and message content locally.
+4. Conversation statistics are calculated.
+5. Results are displayed through an interactive story-style interface.
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## Current Limitations
 
-### Android
+- The current parser is designed primarily for chats with two participants.
+- The parser expects a specific WhatsApp export date and time format.
+- Different regional export formats may require parser adjustments.
 
-```sh
-# Using npm
-npm run android
+## Privacy
 
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Chat files are processed locally by the application. The current implementation does not require a backend to analyze conversation data.
