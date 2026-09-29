@@ -12,8 +12,6 @@ export const analyzeMessages = (content: string) => {
         const dayOfWeekMap = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
         const dayOfWeekCounts: { [key: number]: number } = {};
         let mostActiveDay = '';
-        let dayOfWeekActive=0;
-        let maxDayCount = 0;
         // Encontrar el mes con más mensajes
         let maxMonth = '';
         let maxCount = 0;
@@ -57,7 +55,7 @@ export const analyzeMessages = (content: string) => {
         if (timeMatch) {
             // Extraemos la hora, minutos y AM/PM
             const hour = timeMatch[1];  // La hora extraída
-            const minutes = timeMatch[2];  // Los minutos extraídos
+            
             const ampm = timeMatch[3];  // a.m. o p.m.
 
             // Convertir a una hora en formato de 24 horas (para comparación)
@@ -92,13 +90,10 @@ export const analyzeMessages = (content: string) => {
             const monthActive = parseInt(dateMatch[2]) - 1; // JS usa 0-11 para meses
             const yearActive = parseInt(dateMatch[3]);
             const dateActive = new Date(yearActive, monthActive, dayActive);
-            dayOfWeekActive = dateActive.getDay(); // 0 (Domingo) a 6 (Sábado)
-            
-            dayOfWeekCounts[dayOfWeekActive] = (dayOfWeekCounts[dayOfWeekActive] || 0) + 1;
+            const dayOfWeek = dateActive.getDay();
 
-            if (dayOfWeekCounts[dayOfWeekActive] > maxDayCount) {
-            maxDayCount = dayOfWeekCounts[dayOfWeekActive];
-            }
+            dayOfWeekCounts[dayOfWeek] =
+            (dayOfWeekCounts[dayOfWeek] || 0) + 1;
         }
         if (match) {
             const name = match[1].trim();  // Extraemos el nombre y lo limpiamos de espacios extra
